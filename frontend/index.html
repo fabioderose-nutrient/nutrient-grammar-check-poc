@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grammar Check</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/styles.css" />
+</head>
+<body>
+  <header id="toolbar">
+    <div class="toolbar-left">
+      <h1>Grammar Check</h1>
+    </div>
+    <div class="toolbar-right">
+      <button id="btn-clear">Clear</button>
+      <button id="btn-check">Check</button>
+      <span id="status"></span>
+    </div>
+  </header>
+
+  <div id="main">
+    <div id="editor-container"></div>
+    <div id="sidebar">
+      <div id="sidebar-header">
+        Issues
+        <span class="issue-count" id="issue-count"></span>
+      </div>
+      <div id="issues-list">
+        <p class="placeholder">Press <strong>Check</strong> to scan for grammar and spelling issues.</p>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

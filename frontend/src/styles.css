@@ -1,0 +1,188 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f0f0f0;
+  overflow: hidden;
+  color: #1d1d1f;
+}
+
+/* ── Top bar ── */
+#toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 14px;
+  background: #fff;
+  border-bottom: 1px solid #d1d1d6;
+  z-index: 100;
+  flex-shrink: 0;
+}
+
+.toolbar-left { display: flex; align-items: center; gap: 10px; }
+
+#toolbar h1 {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.toolbar-right { display: flex; align-items: center; gap: 8px; }
+
+#toolbar button {
+  background: #fff;
+  color: #1d1d1f;
+  border: 1px solid #d1d1d6;
+  padding: 5px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+#toolbar button:hover { background: #f5f5f7; border-color: #b0b0b5; }
+#toolbar button:active { background: #e8e8ed; }
+#toolbar button:disabled { opacity: 0.4; cursor: default; }
+
+#btn-check { background: #0066cc; color: #fff; border-color: #0066cc; }
+#btn-check:hover { background: #0055b3; }
+#btn-check:active { background: #004999; }
+
+#status { font-size: 11px; color: #86868b; min-width: 80px; text-align: right; }
+
+/* ── Layout ── */
+#main { display: flex; flex: 1; overflow: hidden; }
+
+#editor-container { flex: 1; position: relative; background: #e8e8ed; overflow: hidden; }
+
+/* ── Sidebar ── */
+#sidebar {
+  width: 300px;
+  background: #fff;
+  border-left: 1px solid #d1d1d6;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+#sidebar-header {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-bottom: 1px solid #e8e8ed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.issue-count {
+  font-weight: 400;
+  color: #86868b;
+  font-size: 11px;
+}
+
+#issues-list { overflow-y: auto; flex: 1; padding: 6px; }
+
+.placeholder {
+  color: #86868b;
+  font-size: 12px;
+  padding: 20px 14px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* ── Issue card ── */
+.issue-card {
+  --ring: #3b82f6;
+  border-left: 3px solid transparent;
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin-bottom: 4px;
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s, box-shadow 0.12s;
+  background: #fff;
+}
+
+.issue-card:hover { background: #f5f5f7; }
+
+/* linked = hovered from either side */
+.issue-card.linked {
+  background: #f8f9fb;
+  border-left-color: var(--ring);
+  box-shadow: inset 3px 0 0 var(--ring);
+}
+
+.issue-badge {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-bottom: 5px;
+}
+
+.issue-badge.spelling { background: #fce4e4; color: #b91c1c; }
+.issue-badge.grammar  { background: #fef3c7; color: #92400e; }
+.issue-badge.style    { background: #dbeafe; color: #1e40af; }
+
+.issue-msg {
+  font-size: 12px;
+  color: #1d1d1f;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+.issue-found {
+  font-size: 11px;
+  color: #86868b;
+  margin-bottom: 6px;
+}
+
+.issue-found strong {
+  color: #b91c1c;
+  text-decoration: line-through;
+  font-weight: 500;
+}
+
+.issue-fix {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  background: #f0fdf4;
+  color: #166534;
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid #bbf7d0;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+
+.issue-fix:hover { background: #dcfce7; }
+
+.issue-card.fixed { opacity: 0.35; pointer-events: none; }
+.issue-card.fixed .issue-fix {
+  background: #f5f5f7;
+  color: #86868b;
+  border-color: #d1d1d6;
+}
+
+
+/* ── Spinner ── */
+.spin {
+  display: inline-block;
+  width: 12px; height: 12px;
+  border: 1.5px solid rgba(255,255,255,0.35);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 0.5s linear infinite;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }

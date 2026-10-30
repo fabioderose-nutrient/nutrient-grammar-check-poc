@@ -1,0 +1,27 @@
+# .NET build output
+bin/
+obj/
+.vs/
+*.user
+*.suo
+
+# Node
+node_modules/
+dist/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Logs, editors and OS
+*.log
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.zip
